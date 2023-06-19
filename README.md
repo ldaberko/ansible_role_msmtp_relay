@@ -6,7 +6,11 @@ Installing and setting up msmtp to relay mail using third party smtp servers.
 Requirements
 ------------
 
-The FreeBSD sysrc requires community.general version 2.5.9
+The FreeBSD sysrc requires community.general version 2.5.9.  This can
+be installed via
+```
+$ ansible-galaxy collection install community.general:==2.5.9
+```
 
 Role Variables
 --------------
