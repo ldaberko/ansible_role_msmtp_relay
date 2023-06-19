@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Larry Daberko
+  description: Install and set up msmtp mail relay
+  company: Daberkotech
+
+  license: GPL-3.0-only
+
+  min_ansible_version: 2.1
+
+  platforms:
+   - name: Ubuntu
+     versions:
+     - all
+   - name: FreeBSD
+     versions:
+     - all
+
+  galaxy_tags:
+    - msmtp
+    - mail
+    - relay
+
+dependencies: []

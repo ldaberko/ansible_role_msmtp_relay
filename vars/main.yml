@@ -1,0 +1,4 @@
+---
+# defaults for msmtprc
+  smtprelay:
+    from: nagios@daberkotech.com

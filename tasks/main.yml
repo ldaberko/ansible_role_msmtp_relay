@@ -1,0 +1,13 @@
+---
+# msmtp_login.yml is stored outside the role directory structure
+# usually in ansible/vars and is usually an ansible vault with 
+# user and password login information
+- include_vars: msmtp_login.yml
+
+- include: ubuntu.yml
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- include: freebsd.yml
+  when: ansible_facts['os_family'] == "FreeBSD"
+
+

@@ -1,0 +1,19 @@
+---
+- name: Ubuntu | Install msmtp-mta
+  ansible.builtin.apt:
+    name: msmtp-mta
+    state: present
+
+- name: Ubuntu | Install msmtp configuration file
+  ansible.builtin.template:
+    src: msmtprc.j2
+    dest: /etc/msmtprc
+    owner: root
+    group: msmtp
+    mode: '0640'
+    backup: true
+      
+- name: Ubuntu | Install bsd-mailx
+  ansible.builtin.apt:
+    name: bsd-mailx
+    state: present

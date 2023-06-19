@@ -1,0 +1,12 @@
+# Google Workspace
+account	workspace
+auth	on
+tls	on
+host	smtp.gmail.com
+port 	587
+from 	nagios@daberkotech.com
+user	{{ user }}
+password {{ password }}
+
+account default: workspace
+

@@ -1,0 +1,55 @@
+---
+# sysrc requires community.general v2.5.9
+
+# We need to disable default sendmail on FreeBSD
+- name: FreeBSD | Disable sendmail
+  community.general.sysrc:
+    name: sendmail_enable
+    state: present
+    value: "NO"
+
+- name: FreeBSD | Disable sendmail_submit
+  community.general.sysrc:
+    name: sendmail_submit
+    state: present
+    value: "NO"
+
+- name: FreeBSD | Disable sendmail_outbound
+  community.general.sysrc:
+    name: sendmail_outbound
+    state: present
+    value: "NO"
+
+- name: FreeBSD | Disable sendmail_msq_queue
+  community.general.sysrc:
+    name: sendmail_msp_queue_enable
+    state: present
+    value: "NO"
+
+- name: FreeBSD | Uninstall ssmtp if it's there
+  pkgng:
+    name: ssmtp
+    state: absent
+
+- name: FreeBSD | Install msmtp
+  pkgng:
+    name: msmtp
+    state: present
+
+- name: FreeBSD | Install msmtp configuration file
+  ansible.builtin.template:
+    src: msmtprc.j2
+    dest: /usr/local/etc/msmtprc
+    owner: root
+    group: wheel
+    mode: '0640'
+    backup: true
+
+- name: FreeBSD | Copy mailer.conf file
+  ansible.builtin.copy:
+    src: mailer.conf
+    dest: /etc/mail/mailer.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: true
