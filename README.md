@@ -12,6 +12,7 @@ Role Variables
 --------------
 
 user - login for smtp relay account, usually your email address
+
 password - password for the above account
 
 msmtp_login.yml is stored outside the role directory structure
