@@ -27,12 +27,12 @@
     value: "NO"
 
 - name: FreeBSD | Uninstall ssmtp if it's there
-  pkgng:
+  community.general.pkgng:
     name: ssmtp
     state: absent
 
 - name: FreeBSD | Install msmtp
-  pkgng:
+  community.general.pkgng:
     name: msmtp
     state: present
 
