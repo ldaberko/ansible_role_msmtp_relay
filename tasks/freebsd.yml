@@ -1,6 +1,10 @@
 ---
 # sysrc requires community.general v2.5.9
 
+# sysrc is used here since ansible.builtin.service throws an error
+# when disabling sendmail by changing NONE to NO and thinking no change
+# was done.  The rest of the rc.conf changes are not service related.
+
 # We need to disable default sendmail on FreeBSD
 - name: FreeBSD | Disable sendmail
   community.general.sysrc:
